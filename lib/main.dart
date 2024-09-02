@@ -1,4 +1,5 @@
 import 'package:bookly/Features/splash/presentation/views/splash_view.dart';
+import 'package:bookly/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class BooklyApp extends StatelessWidget {
 
 
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor:const Color(0xff100B20),
+        scaffoldBackgroundColor:kPrimaryColor,
         ),
 
 
