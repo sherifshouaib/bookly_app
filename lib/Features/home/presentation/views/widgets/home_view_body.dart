@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:bookly/Features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/styles.dart';
@@ -10,13 +12,13 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return  Padding(
       padding: EdgeInsets.symmetric(
         horizontal: 24,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: const [
           CustomAppBar(),
           FeaturedBooksListView(),
           SizedBox(
@@ -24,9 +26,9 @@ class HomeViewBody extends StatelessWidget {
           ),
           Text(
             'Best Seller',
-            style: Styles.titleMedium,
+            style: Styles.textStyle18,
           ),
-          BestSellerListViewItem(),
+        BestSellerListViewItem(),
         ],
       ),
     );
@@ -56,7 +58,7 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
           ),
           Column(
-            children: [],
+            children: const [],
           )
         ],
       ),
