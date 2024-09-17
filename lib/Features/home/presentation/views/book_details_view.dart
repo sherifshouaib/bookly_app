@@ -8,9 +8,7 @@ class BookDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: BookDetailsViewBody(),
-        ),
+        child: BookDetailsViewBody(),
       ),
     );
   }
