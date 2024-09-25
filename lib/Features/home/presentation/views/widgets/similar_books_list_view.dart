@@ -14,7 +14,10 @@ class SimilarBooksListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 5),
-            child: CustomBookImage(),
+            child: CustomBookImage(
+              imageUrl:
+                  'https://www.istockphoto.com/it/foto/fetta-di-anguria-isolata-su-sfondo-bianco-percorso-di-ritaglio-piena-profondit%C3%A0-di-gm1125584344-295956834',
+            ),
           );
         },
       ),

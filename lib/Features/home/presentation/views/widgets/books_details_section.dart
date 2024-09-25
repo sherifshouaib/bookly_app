@@ -1,6 +1,3 @@
-
-
-
 import 'package:bookly/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:bookly/core/utils/styles.dart';
@@ -21,7 +18,10 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: width * .2,
           ),
-          child: const CustomBookImage(),
+          child: const CustomBookImage(
+            imageUrl:
+                'https://www.istockphoto.com/it/foto/fetta-di-anguria-isolata-su-sfondo-bianco-percorso-di-ritaglio-piena-profondit%C3%A0-di-gm1125584344-295956834',
+          ),
         ),
         const SizedBox(
           height: 43,
@@ -59,4 +59,3 @@ class BookDetailsSection extends StatelessWidget {
     );
   }
 }
-
