@@ -9,6 +9,7 @@ import 'custom_book_item.dart';
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
@@ -21,10 +22,12 @@ class FeaturedBooksListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return  Padding(
+                return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: CustomBookImage(
-                    imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            '',
                   ),
                 );
               },
