@@ -18,12 +18,14 @@ class SimilarBooksListView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .15,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
+              itemCount: state.books.length,  
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: CustomBookImage(
                     imageUrl:
-                        'https://www.istockphoto.com/it/foto/fetta-di-anguria-isolata-su-sfondo-bianco-percorso-di-ritaglio-piena-profondit%C3%A0-di-gm1125584344-295956834',
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            '',
                   ),
                 );
               },
@@ -31,7 +33,7 @@ class SimilarBooksListView extends StatelessWidget {
           );
         } else if (state is SimilarBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
-        }else{
+        } else {
           return const CustomLoadingIndicator();
         }
       },
