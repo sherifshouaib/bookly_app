@@ -9,8 +9,7 @@ import 'books_action.dart';
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.book});
 
-
-final BookModel book;
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -21,9 +20,8 @@ final BookModel book;
           padding: EdgeInsets.symmetric(
             horizontal: width * .2,
           ),
-          child:  CustomBookImage(
-            imageUrl:
-                book.volumeInfo.imageLinks?.thumbnail ?? '',
+          child: CustomBookImage(
+            imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         const SizedBox(
@@ -52,7 +50,7 @@ final BookModel book;
         const SizedBox(
           height: 18,
         ),
-         BookRating(
+        BookRating(
           rating: book.volumeInfo.averageRating ?? 0,
           count: book.volumeInfo.ratingsCount ?? 0,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +58,9 @@ final BookModel book;
         const SizedBox(
           height: 37,
         ),
-        const BooksAction(),
+        BooksAction(
+          bookModel: book,
+        ),
       ],
     );
   }
