@@ -23,6 +23,8 @@ class BookListViewItem extends StatelessWidget {
       child: SizedBox(
         height: 125,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start, // ✅ (1) اتضافت
+
           children: [
             CustomBookImage(
               imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
@@ -33,28 +35,33 @@ class BookListViewItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min, // ✅ (2) اتضافت
+
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .5,
-                    child: Text(
-                      bookModel.volumeInfo.title!,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Styles.textStyle20.copyWith(
-                        fontFamily: kGtSectraFine,
-                      ),
+                  Text(
+                    bookModel.volumeInfo.title!,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.textStyle20.copyWith(
+                      fontFamily: kGtSectraFine,
                     ),
                   ),
                   const SizedBox(
                     height: 3,
                   ),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ??
+                        'Unknown', // ✅ (4) أمنت الـ null
+                    maxLines: 1, // ✅ (5) اتضافت
+                    overflow: TextOverflow.ellipsis, // ✅ (6) اتضافت
+                    //bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle14,
                   ),
-                  const SizedBox(
-                    height: 3,
-                  ),
+                  // const SizedBox(
+                  //   height: 3,
+                  // ),
+                  const Spacer(), // ✅ (7) بدل SizedBox(height:3)
+
                   Row(
                     children: [
                       Text(

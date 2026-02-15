@@ -21,7 +21,6 @@ class _SplashViewbodyState extends State<SplashViewbody>
     super.initState();
     initSlidingAnimation();
 
-
     navigateToHome();
   }
 
@@ -69,11 +68,8 @@ class _SplashViewbodyState extends State<SplashViewbody>
         //   transition: Transition.fade,
         //   duration: kTransitionDuration,
         // );
-
-        GoRouter.of(context).push(AppRouter.kHomeView);
-
-
-
+        if (!mounted) return;
+        GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
       },
     );
   }

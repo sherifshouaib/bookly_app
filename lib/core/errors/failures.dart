@@ -41,6 +41,9 @@ class ServerFailure extends Failure {
     }
   }
 
+ 
+ 
+ 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(response['error']['message']);
@@ -52,4 +55,10 @@ class ServerFailure extends Failure {
       return ServerFailure('Oops There was an Error, Please try again');
     }
   }
+
+
+
+
+
+
 }
